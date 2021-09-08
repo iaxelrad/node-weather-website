@@ -16,7 +16,7 @@ const messageTwo = document.querySelector('#message-2');
 messageOne.textContent = '';
 
 const fetchWeather = async searchTerm => {
-  const response = await fetch(`http://localhost:3000/weather?address=${searchTerm}`);
+  const response = await fetch(`/weather?address=${searchTerm}`);
 
   const data = await response.json();
   if (data.error) {
