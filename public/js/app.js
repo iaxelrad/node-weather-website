@@ -9,14 +9,14 @@ const fetchWeather = async searchTerm => {
 
   const data = await response.json();
   if (data.error) {
-    messageOne.textContent = data.error;
+    messageOne.innerHTML = data.error;
     messageOne.style.color = 'red';
-    messageTwo.textContent = '';
+    messageTwo.innerHTML = '';
   } else {
     messageOne.style.color = null;
 
-    messageOne.textContent = data.location;
-    messageTwo.textContent = data.forecast;
+    messageOne.innerHTML = data.location;
+    messageTwo.innerHTML = data.forecast;
   }
 };
 
@@ -24,8 +24,8 @@ weatherForm.addEventListener('submit', e => {
   e.preventDefault();
   const location = search.value;
   messageOne.style.color = null;
-  messageOne.textContent = 'Loading...';
-  messageTwo.textContent = '';
+  messageOne.innerHTML = 'Loading...';
+  messageTwo.innerHTML = '';
 
   fetchWeather(location);
 });
